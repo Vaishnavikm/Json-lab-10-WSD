@@ -59,14 +59,16 @@
   </thead>
   <tbody>
 </div>
-    <tr ng-repeat="item in name|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'price'" >
-    		<td></td>
+    <tr ng-repeat="item in pid|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'price'" >
+    </tr>
+      <td>{{item.pid|uppercase}}</td>
 			<td>{{item.name|uppercase}}</td>
 			<td>{{item.dom|date:"dd/MM/yyyy"}}</td>
+      <td>{{item.exp}}</td>
 			<td>{{item.price|number:1}}</td>
+      <td>{{item.quantity}}</td>
 			<td>{{item.category|lowercase}}</td>
 		</tr>
-    </tr>
   
   </tbody>
 </table>
