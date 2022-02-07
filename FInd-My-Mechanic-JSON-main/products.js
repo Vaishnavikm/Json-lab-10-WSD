@@ -1,6 +1,6 @@
-var myapp = angular.module('Mechanic', []);
+var myapp = angular.module('products', []);
       /*Dependency Injection*/
-      myapp.controller('Mechanicctrl',function($scope,$http)
+      myapp.controller('productctrl1',function($scope,$http)
 {
    $http.get('https://vaishnavikm.github.io/WSD-lab-10-json/inventory.json')
    .success(function(response)
