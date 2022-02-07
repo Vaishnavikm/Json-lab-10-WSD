@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="Mechanic">
+<html ng-app="products">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width initial-scale=1.0">
-	<title>IGNITE</title>
+	<title>Inventory management</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="angular.min.js"></script>
 	<script src="products.js"></script>
@@ -15,28 +15,14 @@
 
 </head>
 <body ng-controller="Mechanicctrl">
-<!-- ng=angular
-ng-app=directibe to use angular application
-ng-app is used to apply applu agular components can be used in main div or body or html tag
-ng-model->two way data binding - view is changed according to model
-{{}}->expression to display the model value
-https://github.com/pavankumark2410/angular.github.io/blob/main/mechanic.json
-sorted using salary
-uppercase the name 
-lower case the location
-using the number filter for salary
-search for each field
-search for status
-row filter
 
--->
-<div style="text-align: center;font-family: cursive;font-size: 40px">IGNITE</div>
-<div class="row form-group" style="text-align: center"><div class="col-4"></div><div class="col-4">Search<br><input class="form-control" type="text" placeholder="Search " ng-model="find"></div>
+<div style="text-align: center;font-family: cursive;font-size: 40px">Inventory Management</div>
+<div class="row form-group" style="text-align: center"><div class="col-4"></div><div class="col-4">Search<br><input class="form-control" type="text" placeholder="Search..." ng-model="find"></div>
 <div class="col-4"></div>
 </div>
 <div class="row form-group">
 <div class="col-5"></div>
-<div class="col-2" style="text-align: center">STATUS:{1-busy/0-free}<input class="form-control" class="input" type="number" min="0" max="1" ng-model="search.status"></div>
+<div class="col-2" style="text-align: center">Availability:{1-yes/0-no}<input class="form-control" class="input" type="number" min="0" max="1" ng-model="search.availability"></div>
 <div class="col-5"></div>
 </div>
 <div class="row">
@@ -47,26 +33,26 @@ row filter
 	ROWS :<br><input type="number" ng-model="rowlimit" >
 
 </div></th>
+      <th scope="col">Product_ID<br>
+        <input type="text" ng-model="search.pid">
+      </th>
       <th scope="col">Name<br>
       	<input type="text" ng-model="search.name">
       </th>
-      <th scope="col">Date OF joining<br>
-      	<input type="text" ng-model="search.doj">
+      <th scope="col">Date Of manufacture<br>
+      	<input type="text" ng-model="search.dom">
       </th>
-      <th scope="col">Experience in Years<br>
+      <th scope="col">Expiry date<br>
       	<input type="text" ng-model="search.exp">
       </th>
-      <th scope="col">Salary<br>
-      <input type="text" ng-model="search.salary">
+      <th scope="col">Price<br>
+      <input type="text" ng-model="search.price">
       </th>
-       <th scope="col">Work Location<br>
-      <input type="text" ng-model="search.location">
+       <th scope="col">Quantity<br>
+      <input type="text" ng-model="search.quantity">
       </th>
-      <th scope="col">Type<br>
-      <input type="text" ng-model="search.type">
-      </th>
-      <th scope="col">Contact No<br>
-      <input type="text" ng-model="find2.contact">
+      <th scope="col">category<br>
+      <input type="text" ng-model="search.category">
       </th>
      
     </tr>
@@ -76,12 +62,10 @@ row filter
     <tr ng-repeat="item in names|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'salary'" >
     		<td></td>
 			<td>{{item.name|uppercase}}</td>
-			<td>{{item.doj|date:"dd/MM/yyyy"}}</td>
-			<td>{{item.exp|number:1}}</td>
-			<td>&#x20B9; {{item.salary|number:0}}</td>
-			<td>{{item.location|lowercase}}</td>
-			<td>{{item.type|uppercase}}</td>
-			<td>&#x260E; {{item.contact}}</td>
+			<td>{{item.dom|date:"dd/MM/yyyy"}}</td>
+			<td>{{item.price|number:1}}</td>
+	
+			<td>{{item.category|lowercase}}</td>
 		</tr>
     </tr>
   
