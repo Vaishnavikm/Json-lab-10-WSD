@@ -1,77 +1,88 @@
 <!DOCTYPE html>
-<html ng-app="products">
+<html ng-app="productss">
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-	<title>Inventory management</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	<script src="angular.min.js"></script>
-	<script src="products.js"></script>
-	<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <title>Inventory management</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="angular.min.js"></script>
+  <script src="products.js"></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
 </head>
+
 <body ng-controller="productctrl1">
 
-<div style="text-align: center;font-family: cursive;font-size: 40px">Inventory Management</div>
-<div class="row form-group" style="text-align: center"><div class="col-4"></div><div class="col-4">Search<br><input class="form-control" type="text" placeholder="Search..." ng-model="find"></div>
-<div class="col-4"></div>
-</div>
-<div class="row form-group">
-<div class="col-5"></div>
-<div class="col-2" style="text-align: center">Availability:{1-yes/0-no}<input class="form-control" class="input" type="number" min="0" max="1" ng-model="search.availability"></div>
-<div class="col-5"></div>
-</div>
-<div class="row">
-<table class="table table-striped">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"><div >
-	ROWS :<br><input type="number" ng-model="rowlimit" >
+  <div style="text-align: center;font-family: cursive;font-size: 40px">Inventory Management</div>
+  <div class="row form-group" style="text-align: center">
+    <div class="col-4"></div>
+    <div class="col-4">Search<br><input class="form-control" type="text" placeholder="Search..." ng-model="find"></div>
+    <div class="col-4"></div>
+  </div>
+  <div class="row form-group">
+    <div class="col-5"></div>
+    <div class="col-2" style="text-align: center">Availability:{1-yes/0-no}<input class="form-control" class="input"
+        type="number" min="0" max="1" ng-model="search.availability"></div>
+    <div class="col-5"></div>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">
+            <div>
+              ROWS :<br><input type="number" ng-model="rowlimit">
 
-</div></th>
-      <th scope="col">Product_ID<br>
-        <input type="text" ng-model="search.pid">
-      </th>
-      <th scope="col">Name<br>
-      	<input type="text" ng-model="search.name">
-      </th>
-      <th scope="col">Date Of manufacture<br>
-      	<input type="text" ng-model="search.dom">
-      </th>
-      <th scope="col">Expiry date<br>
-      	<input type="text" ng-model="search.exp">
-      </th>
-      <th scope="col">Price<br>
-      <input type="text" ng-model="search.price">
-      </th>
-       <th scope="col">Quantity<br>
-      <input type="text" ng-model="search.quantity">
-      </th>
-      <th scope="col">category<br>
-      <input type="text" ng-model="search.category">
-      </th>
-     
-    </tr>
-  </thead>
-  <tbody>
-</div>
-    <tr ng-repeat="item in pid|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'pid'" >
-    </tr>
-      <td>{{item.pid|uppercase}}</td>
-			<td>{{item.name|uppercase}}</td>
-			<td>{{item.dom|date:"dd/MM/yyyy"}}</td>
-      <td>{{item.exp}}</td>
-			<td>{{item.price|number:1}}</td>
-      <td>{{item.quantity}}</td>
-			<td>{{item.category|lowercase}}</td>
-		</tr>
-  
+            </div>
+          </th>
+          <th scope="col">Product_ID<br>
+            <input type="text" ng-model="search.pid">
+          </th>
+          <th scope="col">Name<br>
+            <input type="text" ng-model="search.name">
+          </th>
+          <th scope="col">Date Of manufacture<br>
+            <input type="text" ng-model="search.dom">
+          </th>
+          <th scope="col">Expiry date<br>
+            <input type="text" ng-model="search.exp">
+          </th>
+          <th scope="col">Price<br>
+            <input type="text" ng-model="search.price">
+          </th>
+          <th scope="col">Quantity<br>
+            <input type="text" ng-model="search.quantity">
+          </th>
+          <th scope="col">category<br>
+            <input type="text" ng-model="search.category">
+          </th>
+
+        </tr>
+      </thead>
+      <tbody>
+  </div>
+  <tr ng-repeat="item in names|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'pid'">
+  </tr>
+  <td>{{item.pid|uppercase}}</td>
+  <td>{{item.name|uppercase}}</td>
+  <td>{{item.dom|date:"dd/MM/yyyy"}}</td>
+  <td>{{item.exp}}</td>
+  <td>{{item.price|number:1}}</td>
+  <td>{{item.quantity}}</td>
+  <td>{{item.category|lowercase}}</td>
+  </tr>
+
   </tbody>
-</table>
+  </table>
 </body>
+
 </html>
