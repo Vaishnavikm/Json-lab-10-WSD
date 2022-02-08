@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 	<title>Inventory management</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="angular.min.js"></script>
@@ -59,7 +60,7 @@
   </thead>
   <tbody>
 </div>
-    <tr ng-repeat="item in pid|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'price'" >
+    <tr ng-repeat="item in pid|filter:search|filter:find |filter:find2 |limitTo:rowlimit | orderBy:'pid'" >
     </tr>
       <td>{{item.pid|uppercase}}</td>
 			<td>{{item.name|uppercase}}</td>
